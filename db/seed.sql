@@ -1,4 +1,4 @@
-\ c games_dev;
+\c games_dev;
 
 INSERT INTO
     games(
@@ -16,7 +16,7 @@ INSERT INTO
 VALUES
     (
         'Silent Hill',
-        1999-01-31,
+        '1999-01-31',
         'Team Silent',
         'Konami',
         'Japan',
@@ -28,10 +28,11 @@ VALUES
     ),
     (
         'Final Fantasy VII',
-        1997-01-31,
+        '1997-01-31',
         'Square',
         'Sony Computer Entertainment',
         'Japan',
+        'Playstation',
         'Turn Based RPG',
         1,
         'https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg',
@@ -39,10 +40,11 @@ VALUES
     ),
     (
         'Metal Gear Solid',
-        1998-09-03,
+        '1998-09-03',
         'Konami',
         'Konami',
         'Japan',
+        'Playstation',
         'Stealth',
         1,
         'https://upload.wikimedia.org/wikipedia/en/3/33/Metal_Gear_Solid_cover_art.png',
@@ -50,10 +52,11 @@ VALUES
     ),
     (
         'Breath of Fire 3',
-        1997-09-11,
+        '1997-09-11',
         'Capcom',
         'Capcom',
         'Japan',
+        'Playstation',
         'RPG',
         1,
         'https://upload.wikimedia.org/wikipedia/en/4/47/Breath_of_Fire_III_cover.png',
