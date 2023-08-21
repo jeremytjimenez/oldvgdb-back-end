@@ -3,7 +3,7 @@
 INSERT INTO
     games(
         title,
-        release_date,
+        release_year,
         developer,
         publisher,
         country,
@@ -16,7 +16,7 @@ INSERT INTO
 VALUES
     (
         'Silent Hill',
-        '1999-01-31',
+        '1999',
         'Team Silent',
         'Konami',
         'Japan',
@@ -28,7 +28,7 @@ VALUES
     ),
     (
         'Final Fantasy VII',
-        '1997-01-31',
+        '1997',
         'Square',
         'Sony Computer Entertainment',
         'Japan',
@@ -40,7 +40,7 @@ VALUES
     ),
     (
         'Metal Gear Solid',
-        '1998-09-03',
+        '1998',
         'Konami',
         'Konami',
         'Japan',
@@ -52,7 +52,7 @@ VALUES
     ),
     (
         'Breath of Fire 3',
-        '1997-09-11',
+        '1997',
         'Capcom',
         'Capcom',
         'Japan',

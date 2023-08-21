@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS games;
 CREATE TABLE games (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
-    release_date DATE,
+    release_year VARCHAR(4),
     developer TEXT,
     publisher TEXT,
     country VARCHAR(50),

@@ -7,6 +7,7 @@ const {
   deleteGameById,
   updateGameById,
 } = require("../queries/games");
+const { checkRelease_Year, checkArt } = require("../validations/checkGames");
 
 router.get("/", async (req, res) => {
   const allGames = await getAllGames();
@@ -28,18 +29,24 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", checkRelease_Year, checkArt, async (req, res) => {
   try {
     const artUrl = req.body.art
       ? req.body.art
       : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+    const descriptionText = req.body.description
+      ? req.body.description
+      : "no description available";
+
 
     const gameData = {
       ...req.body,
       art: artUrl,
+      description: descriptionText,
     };
 
     const game = await createGame(gameData);
+    console.log(game)
     res.json(game);
   } catch (error) {
     res.status(404).json({ error: "error" });
@@ -56,14 +63,20 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", checkRelease_Year, checkArt, async (req, res) => {
   try {
     const { id } = req.params;
-    const artUrl = req.body.art ? req.body.art : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+    const artUrl = req.body.art
+      ? req.body.art
+      : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+    const descriptionText = req.body.description
+      ? req.body.description
+      : "no description available";
 
     const updatedGameData = {
       ...req.body,
       art: artUrl,
+      description: descriptionText,
     };
 
     const updatedGame = await updateGameById(id, updatedGameData);

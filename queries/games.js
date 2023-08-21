@@ -25,10 +25,10 @@ async function getGameById(id) {
 const createGame = async (data) => {
   try {
     const newGame = await db.one(
-      "INSERT INTO games (title, release_date, developer, publisher, country, platform, genre, player_count, art, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
+      "INSERT INTO games (title, release_year, developer, publisher, country, platform, genre, player_count, art, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
       [
-        data.name,
-        data.release_date,
+        data.title,
+        data.release_year,
         data.developer,
         data.publisher,
         data.country,
@@ -71,10 +71,10 @@ const updateGameById = async (id, data) => {
     };
 
     const updatedGame = await db.one(
-      "UPDATE games SET name = $1, release_date = $2, developer = $3, publisher = $4, country = $5, platform = $6, genre = $7, player_count = $8, art = $9, description = $10 WHERE id = $11 RETURNING *",
+      "UPDATE games SET title = $1, release_year = $2, developer = $3, publisher = $4, country = $5, platform = $6, genre = $7, player_count = $8, art = $9, description = $10 WHERE id = $11 RETURNING *",
       [
-        combinedGame.name,
-        combinedGame.release_date,
+        combinedGame.title,
+        combinedGame.release_year,
         combinedGame.developer,
         combinedGame.publisher,
         combinedGame.country,
@@ -86,6 +86,8 @@ const updateGameById = async (id, data) => {
         id,
       ]
     );
+
+    console.log(updatedGame)
 
     return { status: "successful!", data: updatedGame };
   } catch (error) {
